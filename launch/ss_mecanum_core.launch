@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="pwm_pca9685" name="pca9685_node" type="pca9685_node" output="screen">
+    <rosparam param="timeout">[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]</rosparam>
+  </node>
+  <node pkg="ss_mecanum" name="ss_mecanum" type="ss_mecanum.py" output="screen"/>
+  <node pkg="ss_mecanum" name="ss_mecanum_motors" type="ss_mecanum_motors.py" output="screen"/>
+</launch>
