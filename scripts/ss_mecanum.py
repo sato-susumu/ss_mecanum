@@ -41,10 +41,20 @@ def handle_cmd_vel(twist_param):
     pub_motor_rear_left.publish(wheel_rear_left)
     pub_motor_rear_right.publish(wheel_rear_right)
 
+def stop():
+    pub_motor_front_left.publish(0)
+    pub_motor_front_right.publish(0)
+    pub_motor_rear_left.publish(0)
+    pub_motor_rear_right.publish(0)
+
+def handle_shutdown():
+    rospy.logwarn('handle_shutdown')
+    stop()
 
 if __name__ == '__main__':
     try:
         rospy.init_node('ss_mecanum')
+        rospy.on_shutdown(handle_shutdown)
 
         sub = rospy.Subscriber('cmd_vel', Twist, handle_cmd_vel)
 

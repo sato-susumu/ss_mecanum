@@ -60,9 +60,24 @@ def rpm_to_pwm(rpm):
     return 0xffff * -rpm / LIMIT_RPM, 0, 0xffff
 
 
+def stop():
+    array = []
+    array.extend([0, 0, 0, 0, 0, 0])
+    array.extend([0, 0, 0, 0, 0, 0])
+    array.extend([-1, -1, -1, -1])
+    array_for_publish = Int32MultiArray(data=array)
+    pub.publish(array_for_publish)
+
+
+def handle_shutdown():
+    rospy.logwarn('handle_shutdown')
+    stop()
+
+
 if __name__ == '__main__':
     try:
         rospy.init_node('ss_mecanum_motors')
+        rospy.on_shutdown(handle_shutdown)
         rate = rospy.Rate(10)
 
         pub = rospy.Publisher('command', Int32MultiArray, queue_size=1)
