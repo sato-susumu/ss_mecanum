@@ -54,10 +54,10 @@ def rpm_to_pwm(rpm):
         # brake
         return 0xffff, 0, 0
     if rpm >= 10 and rpm <= LIMIT_RPM:
-        # rotate clockwise
-        return 0xffff * rpm / LIMIT_RPM, 0, 0xffff
-    # rotate counterclockwise
-    return 0xffff * -rpm / LIMIT_RPM, 0xffff, 0
+        # rotate counterclockwise
+        return 0xffff * rpm / LIMIT_RPM, 0xffff, 0
+    # rotate clockwise
+    return 0xffff * -rpm / LIMIT_RPM, 0, 0xffff
 
 
 if __name__ == '__main__':
@@ -82,16 +82,16 @@ if __name__ == '__main__':
             ena, in1, in2 = rpm_to_pwm(motor_front_right_rpm)
             enb, in3, in4 = rpm_to_pwm(motor_front_left_rpm)
             if reverse_rotation_of_right_motor_enabled:
-                array.extend([ena, in4, in3, in1, in2, enb])
+                array.extend([ena, in2, in1, in3, in4, enb])
             else:
-                array.extend([ena, in3, in4, in3, in4, enb])
+                array.extend([ena, in1, in2, in3, in4, enb])
 
             ena, in1, in2 = rpm_to_pwm(motor_rear_right_rpm)
             enb, in3, in4 = rpm_to_pwm(motor_rear_left_rpm)
             if reverse_rotation_of_right_motor_enabled:
-                array.extend([ena, in4, in3, in1, in2, enb])
+                array.extend([ena, in2, in1, in3, in4, enb])
             else:
-                array.extend([ena, in3, in4, in3, in4, enb])
+                array.extend([ena, in1, in2, in3, in4, enb])
 
             array.extend([-1, -1, -1, -1])
 
