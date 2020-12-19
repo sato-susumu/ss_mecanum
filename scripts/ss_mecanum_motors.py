@@ -19,6 +19,7 @@ sub_motor_rear_right = None
 LIMIT_RPM = 80
 MINIMUM_RPM = 10
 
+reverse_rotation_of_right_motor_enabled = True
 
 def to_rpm(angular_velocity):
     return 60 * angular_velocity / (2 * math.pi)
@@ -78,13 +79,19 @@ if __name__ == '__main__':
         while not rospy.is_shutdown():
             array = []
 
-            ena, in1, in2 = rpm_to_pwm(motor_front_left_rpm)
-            enb, in3, in4 = rpm_to_pwm(motor_front_right_rpm)
-            array.extend([ena, in1, in2, in3, in4, enb])
+            ena, in1, in2 = rpm_to_pwm(motor_front_right_rpm)
+            enb, in3, in4 = rpm_to_pwm(motor_front_left_rpm)
+            if reverse_rotation_of_right_motor_enabled:
+                array.extend([ena, in4, in3, in1, in2, enb])
+            else:
+                array.extend([ena, in3, in4, in3, in4, enb])
 
-            ena, in1, in2 = rpm_to_pwm(motor_rear_left_rpm)
-            enb, in3, in4 = rpm_to_pwm(motor_rear_right_rpm)
-            array.extend([ena, in1, in2, in3, in4, enb])
+            ena, in1, in2 = rpm_to_pwm(motor_rear_right_rpm)
+            enb, in3, in4 = rpm_to_pwm(motor_rear_left_rpm)
+            if reverse_rotation_of_right_motor_enabled:
+                array.extend([ena, in4, in3, in1, in2, enb])
+            else:
+                array.extend([ena, in3, in4, in3, in4, enb])
 
             array.extend([-1, -1, -1, -1])
 

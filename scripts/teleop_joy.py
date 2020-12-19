@@ -5,16 +5,16 @@ import rospy
 from sensor_msgs.msg import Joy
 from geometry_msgs.msg import Twist
 
-max_vel_x = 0.5
-max_vel_y = 0.5
+max_vel_x = 1
+max_vel_y = 1
 max_vel_th = 1.0
 
 
-def handle_joy(self, joy_msg):
+def handle_joy(joy_msg):
     twist = Twist()
-    twist.linear.x = joy_msg.axes[0] * max_vel_x
-    twist.linear.y = joy_msg.axes[1] * max_vel_y
-    twist.angular.z = joy_msg.axes[0] * max_vel_th
+    twist.linear.x = joy_msg.axes[1] * max_vel_x
+    twist.linear.y = joy_msg.axes[0] * max_vel_y
+    # twist.angular.z = joy_msg.axes[0] * max_vel_th
     pub.publish(twist)
 
 

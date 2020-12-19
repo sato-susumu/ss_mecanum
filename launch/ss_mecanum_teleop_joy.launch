@@ -6,7 +6,11 @@
     <param name="dev" value="$(arg joy_dev)" />
   </node>
 
+  <node pkg="ss_mecanum" name="teleop_joy" type="teleop_joy.py" />
+
+  <!--
   <node pkg="teleop_twist_joy" name="teleop_twist_joy" type="teleop_node">
     <param name="joy_config" value="$(arg joy_config)" />
   </node>
+  -->
 </launch>
