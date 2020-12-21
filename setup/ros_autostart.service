@@ -1,0 +1,12 @@
+[Unit]
+Description = ROS auto start
+After = NetworkManager.service
+
+[Service]
+Type = simple
+User = jetbot
+ExecStart = /usr/sbin/roslaunch_autostart
+Restart = always
+
+[Install]
+WantedBy = multi-user.target

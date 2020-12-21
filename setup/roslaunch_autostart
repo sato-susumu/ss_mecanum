@@ -1,0 +1,4 @@
+#!/bin/bash
+source ~/.bashrc
+source ~/catkin_ws/devel/setup.bash
+roslaunch ss_mecanum autostart.launch
