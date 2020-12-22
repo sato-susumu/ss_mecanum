@@ -5,16 +5,25 @@ import rospy
 from sensor_msgs.msg import Joy
 from geometry_msgs.msg import Twist
 
-max_vel_x = 1
-max_vel_y = 1
-max_vel_th = 1.0
+max_vel_x = 0.5
+max_vel_y = 0.5
+max_vel_th = 3.0
 
+JOY_AXES_ANALOG_STICK_L_X = 1
+JOY_AXES_ANALOG_STICK_L_Y = 0
+JOY_BUTTONS_LB = 4
+JOY_BUTTONS_RB = 5
 
 def handle_joy(joy_msg):
     twist = Twist()
-    twist.linear.x = joy_msg.axes[1] * max_vel_x
-    twist.linear.y = joy_msg.axes[0] * max_vel_y
-    # twist.angular.z = joy_msg.axes[0] * max_vel_th
+    twist.linear.x = joy_msg.axes[JOY_AXES_ANALOG_STICK_L_X] * max_vel_x
+    twist.linear.y = joy_msg.axes[JOY_AXES_ANALOG_STICK_L_Y] * max_vel_y
+    if joy_msg.buttons[JOY_BUTTONS_LB] == 1:
+        twist.angular.z = max_vel_th
+    elif joy_msg.buttons[JOY_BUTTONS_RB] == 1:
+        twist.angular.z = -max_vel_th
+    else:
+        twist.angular.z = 0
     pub.publish(twist)
 
 def stop():

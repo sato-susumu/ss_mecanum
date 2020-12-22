@@ -16,8 +16,8 @@ sub_motor_front_right = None
 sub_motor_rear_left = None
 sub_motor_rear_right = None
 
-LIMIT_RPM = 80
-MINIMUM_RPM = 10
+LIMIT_RPM = 12.5
+MINIMUM_RPM = 8
 
 reverse_rotation_of_right_motor_enabled = True
 
@@ -112,6 +112,11 @@ if __name__ == '__main__':
 
             array_for_publish = Int32MultiArray(data=array)
             pub.publish(array_for_publish)
+            rospy.logwarn('rpm {0:.2f}, {1:.2f}, {2:.2f}, {3:.2f}'.format(
+                motor_front_left_rpm,
+                motor_front_right_rpm,
+                motor_rear_left_rpm,
+                motor_rear_right_rpm))
             rate.sleep()
 
     except rospy.ROSInterruptException:
