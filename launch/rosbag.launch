@@ -1,0 +1,11 @@
+<launch>
+    <node name="rosbag_record" pkg="remote_rosbag_record" type="record" respawn="true" output="screen">
+      <param name="record_all" type="bool" value="true"/>
+      <param name="append_date" type="bool" value="true"/>
+      <param name="prefix" value="$(find ss_mecanum)/rosbag/ss_mecanum"/>
+    </node>
+    <node name="rosbag_joy_listener" pkg="remote_rosbag_record" type="joy_listener" respawn="true" output="screen">
+      <param name="start_button" type="int" value="8"/>
+      <param name="stop_button" type="int" value="6"/>
+    </node>
+</launch>
