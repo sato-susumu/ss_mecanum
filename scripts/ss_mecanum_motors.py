@@ -112,11 +112,11 @@ if __name__ == '__main__':
 
             array_for_publish = Int32MultiArray(data=array)
             pub.publish(array_for_publish)
-            rospy.logwarn('rpm {0:.2f}, {1:.2f}, {2:.2f}, {3:.2f}'.format(
-                motor_front_left_rpm,
-                motor_front_right_rpm,
-                motor_rear_left_rpm,
-                motor_rear_right_rpm))
+            # rospy.logwarn('rpm {0:.2f}, {1:.2f}, {2:.2f}, {3:.2f}'.format(
+            #    motor_front_left_rpm,
+            #    motor_front_right_rpm,
+            #    motor_rear_left_rpm,
+            #    motor_rear_right_rpm))
             rate.sleep()
 
     except rospy.ROSInterruptException:
