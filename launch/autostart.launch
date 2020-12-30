@@ -1,6 +1,8 @@
 <launch>
   <include file="$(find ss_mecanum)/launch/core.launch"/>
   <include file="$(find ss_mecanum)/launch/teleop_joy.launch"/>
+  <include file="$(find ss_mecanum)/launch/rosbag.launch"/>
+  <include file="$(find ros_jetson_stats)/launch/jetson_stats.launch"/>
   <include file="$(find hls_lfcd_lds_driver)/launch/hlds_laser.launch"/>
   <include file="$(find realsense2_camera)/launch/rs_t265.launch"/>
 </launch>
