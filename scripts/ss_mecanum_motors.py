@@ -17,7 +17,7 @@ sub_motor_rear_left = None
 sub_motor_rear_right = None
 
 LIMIT_RPM = 12.5
-MINIMUM_RPM = 8
+MINIMUM_RPM = 1
 
 reverse_rotation_of_right_motor_enabled = True
 
@@ -53,7 +53,7 @@ def rpm_to_pwm(rpm):
     if abs(rpm) < MINIMUM_RPM:
         # brake
         return 0xffff, 0, 0
-    if rpm >= 10 and rpm <= LIMIT_RPM:
+    if rpm >= 0:
         # rotate counterclockwise
         return 0xffff * rpm / LIMIT_RPM, 0xffff, 0
     # rotate clockwise
