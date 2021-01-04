@@ -4,5 +4,5 @@
   <include file="$(find ss_mecanum)/launch/rosbag.launch"/>
   <include file="$(find ros_jetson_stats)/launch/jetson_stats.launch"/>
   <include file="$(find ss_mecanum)/launch/lidar.launch"/>
-  <include file="$(find realsense2_camera)/launch/rs_t265.launch"/>
+  <include file="$(find ss_mecanum)/launch/rs_t265.launch"/>
 </launch>
