@@ -6,7 +6,7 @@ Currently, this robot can:
 
 * Control of Mecanum wheel car by ROS (Robot Operating System)
 * Robot operation with keyboard or joystick
-* Creating a map using the Intel RealSense Tracking Camera T265
+* Creating a map using LiDAR and Tracking Camera
 
 Details are described in the [document(Japanese)](/docs/index.md).
 
