@@ -40,6 +40,6 @@ $ source devel/setup.bash
 ```
 
 # 参考
-[PCA9685の動作確認方法］(https://www.sato-susumu.com/entry/pwm_pca9685)  
+[PCA9685の動作確認方法](https://www.sato-susumu.com/entry/pwm_pca9685)  
 [LiDAR LDS-01の動作確認方法](https://www.sato-susumu.com/entry/LDS-01)  
 
