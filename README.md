@@ -2,6 +2,8 @@
 
 ss_mecanum is an open source robot based on the NVIDIA Jetson Nano and mechanical wheel car kit.
 
+<img src="/docs/images/ss_mecanum.jpg" height="256">
+
 Currently, this robot can:
 
 * Control of Mecanum wheel car by ROS (Robot Operating System)
