@@ -1,4 +1,5 @@
 <launch>
+  <!-- Change the value of Global options> Fixed Frame to base_scan -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find hls_lfcd_lds_driver)/rviz/hlds_laser.rviz" />
 </launch>
 
