@@ -103,19 +103,11 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        base_link:
+        t265_link:
           Value: true
-        base_pose_frame:
+        t265_odom_frame:
           Value: true
-        odom:
-          Value: true
-        rs_t265_accel_frame:
-          Value: true
-        rs_t265_accel_optical_frame:
-          Value: true
-        rs_t265_gyro_frame:
-          Value: true
-        rs_t265_gyro_optical_frame:
+        t265_pose_frame:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -123,22 +115,17 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        odom:
-          base_pose_frame:
-            base_link:
-              rs_t265_accel_frame:
-                rs_t265_accel_optical_frame:
-                  {}
-              rs_t265_gyro_frame:
-                rs_t265_gyro_optical_frame:
-                  {}
+        t265_odom_frame:
+          t265_pose_frame:
+            t265_link:
+              {}
       Update Interval: 0
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: t265_odom_frame
     Frame Rate: 30
   Name: root
   Tools:
