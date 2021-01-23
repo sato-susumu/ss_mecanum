@@ -20,7 +20,7 @@
 
   <include file="$(find ss_mecanum)/launch/view_slam.launch"/>
 
-  <node name="rosbag_play" pkg="rosbag" type="play" args="$(find ss_mecanum)/rosbag/ss_mecanum.bag -l --clock" />
+  <node name="rosbag_play" pkg="rosbag" type="play" args="$(find ss_mecanum)/rosbag/ss_mecanum.bag -r 5.0 --clock" />
 
 </launch>
 
