@@ -1,0 +1,26 @@
+<launch>
+  <rosparam param="/use_sim_time">true</rosparam>
+
+  <node pkg="tf" type="static_transform_publisher" name="t265_pose_frame_to_t265_link" args="0 0 0 0 0 0 t265_pose_frame t265_link 100" />
+  <!--
+  <node pkg="tf" type="static_transform_publisher" name="t265_odom_frame_to_t265_pose_frame" args="0 0 0 0 0 0 t265_odom_frame t265_pose_frame 100" />
+  -->
+  <node pkg="tf" type="static_transform_publisher" name="t265_link_to_base_scan" args="0 0 0 0 0 0 t265_link base_scan 100" />
+
+  <arg name="set_base_frame" default="t265_link"/>
+  <arg name="set_odom_frame" default="t265_odom_frame"/>
+  <arg name="set_map_frame"  default="map"/>
+
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <param name="base_frame" value="$(arg set_base_frame)"/>
+    <param name="odom_frame" value="$(arg set_odom_frame)"/>
+    <param name="map_frame"  value="$(arg set_map_frame)"/>
+    <rosparam command="load" file="$(find ss_mecanum)/config/gmapping_params.yaml" />
+  </node>
+
+  <include file="$(find ss_mecanum)/launch/view_slam.launch"/>
+
+  <node name="rosbag_play" pkg="rosbag" type="play" args="$(find ss_mecanum)/rosbag/ss_mecanum.bag -l --clock" />
+
+</launch>
+
