@@ -1,0 +1,5 @@
+<launch>
+  <arg name="map_file" default="$(find ss_mecanum)/maps/map"/>
+  <node pkg="map_server" name="map_saver" type="map_saver" args="-f $(arg map_file)" output="screen"/>
+</launch>
+
