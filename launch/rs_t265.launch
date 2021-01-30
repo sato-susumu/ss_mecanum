@@ -1,16 +1,16 @@
 <launch>
-  <arg name="device_type"         default="t265"/>
-  <arg name="camera"              default="t265"/>
-  <arg name="tf_prefix"           default="$(arg camera)"/>
+  <arg name="device_type_camera1"         default="t265"/>
+  <arg name="camera1"              default="t265"/>
+  <arg name="tf_prefix"           default="$(arg camera1)"/>
   <arg name="enable_pose"         default="true"/>
   <arg name="initial_reset"         default="true"/>
 
   <remap from="/t265/odom/sample" to="/odom"/>
 
-  <group ns="$(arg camera)">
+  <group ns="$(arg camera1)">
     <include file="$(find realsense2_camera)/launch/includes/nodelet.launch.xml">
       <arg name="tf_prefix"                value="$(arg tf_prefix)"/>
-      <arg name="device_type"              value="$(arg device_type)"/>
+      <arg name="device_type"              value="$(arg device_type_camera1)"/>
       <arg name="enable_pose"              value="$(arg enable_pose)"/>
       <arg name="initial_reset"            value="$(arg initial_reset)"/>
     </include>
