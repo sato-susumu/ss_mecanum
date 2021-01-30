@@ -1,0 +1,4 @@
+<launch>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find ss_mecanum)/rviz/view_rtabmap.rviz" />
+</launch>
+
