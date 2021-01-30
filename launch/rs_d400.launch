@@ -3,13 +3,13 @@
   <arg name="serial_no_camera2"    			default=""/>
   <arg name="camera2"              			default="d400"/>
   <arg name="tf_prefix_camera2"         default="$(arg camera2)"/>
-  <arg name="initial_reset"             default="false"/>
+  <arg name="initial_reset"             default="true"/>
   <arg name="enable_fisheye"            default="false"/>
-  <arg name="enable_infra1"             default="true"/>
+  <arg name="enable_infra1"             default="false"/>
   <arg name="enable_infra2"             default="false"/>
-  <arg name="color_width"               default="640"/>
+  <arg name="color_width"               default="848"/>
   <arg name="color_height"              default="480"/>
-  <arg name="depth_width"               default="640"/>
+  <arg name="depth_width"               default="848"/>
   <arg name="depth_height"              default="480"/>
   <arg name="clip_distance"             default="-2"/>
   <arg name="topic_odom_in"             default="odom_in"/>
