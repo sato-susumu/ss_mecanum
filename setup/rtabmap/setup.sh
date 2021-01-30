@@ -2,4 +2,5 @@
 
 set -x
 
-sudo apt-get install ros-melodic-rtabmap-ros -y
+sudo apt install ros-melodic-rtabmap-ros -y
+sudo apt install ros-melodic-octomap-rviz-plugins -y
